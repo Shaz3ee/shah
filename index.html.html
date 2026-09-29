@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shahzaib Shahid | Graphic &amp; Brand Designer</title>
+<meta name="description" content="Portfolio of Shahzaib Shahid, graphic and brand designer.">
+<meta name="theme-color" content="#0f0f0f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0f0f; --fg:#f2f0eb; --muted:#8d8a85; --line:#2a2927; --accent:#d8ff3e;
+  --display:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;
+  --body:'Inter Tight',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(16px,3vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{max-width:100%;display:block}
+.small{font-size:13px;color:var(--muted)}
+section{padding:clamp(64px,10vw,140px) var(--pad)}
+
+/* top bar */
+header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 18px) var(--pad) 18px;mix-blend-mode:difference;color:#fff}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.menu-btn{font-size:14px;padding:6px 0}
+
+/* menu overlay */
+#menu{position:fixed;inset:0;z-index:60;background:var(--accent);color:#0f0f0f;display:flex;flex-direction:column;justify-content:center;padding:var(--pad);transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);visibility:hidden}
+#menu.open{transform:none;visibility:visible}
+#menu a{font-family:var(--display);font-weight:800;font-size:clamp(44px,11vw,140px);line-height:1;letter-spacing:-.03em;display:block}
+#menu a:hover{opacity:.55}
+#menu .close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 18px);right:var(--pad);font-size:14px}
+
+/* hero */
+.hero{--title-size:clamp(60px,15vw,270px);--title-top:13%;--photo-h:88svh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:110px;padding-bottom:24px;position:relative;overflow:hidden}
+@media (max-width:700px){.hero{--title-size:19vw;--title-top:21%;--photo-h:72svh}}
+.hero video,.hero .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;z-index:0}
+.hero .hero-bg{background:radial-gradient(45% 45% at var(--mx,70%) var(--my,30%),#3a4f14 0,transparent 70%),radial-gradient(50% 40% at 20% 80%,#1d1d2e 0,transparent 70%)}
+.hero>*{position:relative;z-index:1}
+.intro{max-width:34ch;font-size:clamp(17px,1.6vw,22px);margin-bottom:auto}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 32px;margin:0 0 18px;font-size:14px}
+.meta-row .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:8px}
+.copy{cursor:pointer;border-bottom:1px solid var(--muted)}
+.h1{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.84;letter-spacing:-.045em;font-size:clamp(64px,17vw,300px)}
+.h1 span{display:block}
+.hero-foot{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.hero .intro,.hero .hero-bottom{z-index:4}
+.hero .intro{text-shadow:0 2px 14px rgba(0,0,0,.7)}
+@media (min-width:701px){.hero{justify-content:flex-end}.hero .intro{margin:0 0 22px;max-width:28ch;font-size:clamp(16px,1.3vw,20px)}}
+@media (max-width:700px){.hero .intro{font-size:15px;max-width:none;margin:0}}
+.ch{display:inline-block;font-style:normal;will-change:transform}
+.hero .trail{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:5;animation:trail .8s ease-out forwards}
+@keyframes trail{to{transform:translateY(26px) scale(0);opacity:0}}
+.hero .h1{position:absolute;left:0;right:0;top:var(--title-top);text-align:center;font-size:var(--title-size);padding-inline:var(--pad);pointer-events:none}
+.hero .h1-back{z-index:1}
+.hero .h1-back span:nth-child(2){color:var(--accent)}
+.hero .h1-front{z-index:3}
+.hero .h1-front span{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.hero .h1-front span:not(:nth-child(2)){visibility:hidden}
+.hero .portrait-wrap{position:absolute;left:0;right:0;bottom:0;height:var(--photo-h);display:flex;justify-content:center;align-items:flex-end;z-index:2;pointer-events:none}
+.portrait-wrap img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+#photoNote{position:absolute;left:50%;bottom:90px;transform:translateX(-50%);z-index:6;background:var(--accent);color:#0f0f0f;font-size:13px;padding:8px 14px;border-radius:999px;max-width:90vw;text-align:center}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(to top,var(--bg) 6%,transparent);z-index:3;pointer-events:none}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0}
+.marquee-track{display:inline-flex;gap:48px;animation:slide 30s linear infinite;padding-right:48px}
+.marquee span{font-size:14px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* work */
+.sec-head{display:flex;justify-content:space-between;margin-bottom:32px}
+.work-row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:baseline;padding:28px 0;border-top:1px solid var(--line);transition:padding .3s}
+.work-row:last-child{border-bottom:1px solid var(--line)}
+.work-row h3{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,88px);letter-spacing:-.03em;line-height:1}
+.work-row .type{font-size:14px;color:var(--muted);text-align:right}
+.work-row .tags{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.work-row:hover{padding-left:16px}
+.work-row:hover h3{color:var(--accent)}
+.thumb{display:none;width:100%;aspect-ratio:16/10;border-radius:4px;margin-top:12px;grid-column:1/-1}
+#peek{position:fixed;top:0;left:0;width:min(34vw,420px);aspect-ratio:4/3;pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.9);transition:opacity .2s,transform .2s;border-radius:4px;background-size:cover;background-position:center;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:28px;color:#0f0f0f}
+#peek.on{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+@media (hover:none),(max-width:820px){#peek{display:none}.thumb{display:block}}
+
+/* statement */
+.statement p{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,72px);line-height:1.02;letter-spacing:-.03em;max-width:20ch}
+.statement .small{margin-top:28px;max-width:52ch;font-size:17px;color:var(--fg)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.svc{padding:24px 20px 24px 0;border-right:1px solid var(--line)}
+.svc+.svc{padding-left:20px}
+.svc:last-child{border-right:0}
+.svc li{transition:padding .2s,color .2s}
+.svc li:hover{color:var(--fg);padding-left:8px}
+.svc h3{font-family:var(--display);font-size:clamp(26px,3vw,44px);line-height:1;letter-spacing:-.03em;margin-bottom:24px}
+.svc li{list-style:none;color:var(--muted);padding:5px 0;border-top:1px solid var(--line);font-size:15px}
+@media (max-width:900px){.services{grid-template-columns:1fr 1fr}.svc:nth-child(2){border-right:0}.svc:nth-child(3){padding-left:0}}
+@media (max-width:560px){.services{grid-template-columns:1fr}.svc{border-right:0;padding-left:0!important;border-bottom:1px solid var(--line)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(48px,8vw,120px);line-height:.95;letter-spacing:-.04em}
+@media (max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+
+/* experience */
+.exp{display:grid;grid-template-columns:160px 1fr 1fr;gap:12px 24px;padding:24px 0;border-top:1px solid var(--line)}
+.exp h4{font-family:var(--display);font-size:24px;letter-spacing:-.02em;font-weight:700}
+.exp p{color:var(--muted);grid-column:2/-1;max-width:56ch}
+@media (max-width:700px){.exp{grid-template-columns:1fr}.exp p{grid-column:1}}
+.btn{display:inline-block;margin-top:32px;padding:14px 22px;border:1px solid var(--fg);border-radius:999px;font-size:15px;transition:background .2s,color .2s}
+.btn:hover{background:var(--fg);color:var(--bg)}
+
+/* testimonials */
+.quote-wrap{position:relative;min-height:260px}
+.quote{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.6vw,52px);line-height:1.08;letter-spacing:-.025em;max-width:26ch}
+.who{margin-top:24px}
+.arrows{display:flex;gap:12px;margin-top:32px}
+.arrows button{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;font-size:18px}
+.arrows button:hover{border-color:var(--fg)}
+
+/* footer */
+footer{padding:clamp(80px,12vw,180px) var(--pad) 32px;background:var(--accent);color:#0f0f0f}
+footer .big{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:-.04em;font-size:clamp(48px,12vw,200px);max-width:12ch}
+footer .cta{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;margin:40px 0 80px}
+footer .mail{font-family:var(--display);font-weight:700;font-size:clamp(20px,3vw,40px);letter-spacing:-.02em}
+footer .book{padding:14px 22px;background:#0f0f0f;color:var(--accent);border-radius:999px;font-size:15px}
+.foot-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;font-size:14px;border-top:1px solid rgba(0,0,0,.25);padding-top:24px}
+.foot-cols a{display:block;padding:2px 0}
+.foot-cols a:hover{text-decoration:underline}
+@media (max-width:700px){.foot-cols{grid-template-columns:1fr 1fr}}
+
+/* motion helpers */
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;z-index:80;pointer-events:none}
+#ring{position:fixed;top:0;left:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid #fff;border-radius:50%;mix-blend-mode:difference;pointer-events:none;z-index:90;opacity:0;transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s}
+#ring.show{opacity:1}
+#ring.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#fff}
+.word{opacity:.2;transition:opacity .25s}
+.word.lit{opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  #ring,#bar{display:none}
+  html{scroll-behavior:auto}
+  .marquee-track{animation:none}
+  #menu{transition:none}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="ring"></div>
+
+<header>
+  <a class="logo" href="#top" id="logoText">SHAHZAIB.</a>
+  <button class="menu-btn" id="openMenu" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+
+<nav id="menu" aria-label="Main">
+  <button class="close" id="closeMenu">Close</button>
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <h1 class="h1 h1-back" id="heroTitle"></h1>
+    <div class="portrait-wrap" id="portraitWrap"><img id="portrait" alt=""></div>
+    <p id="photoNote" role="alert" hidden></p>
+    <div class="h1 h1-front" id="heroTitleFront" aria-hidden="true"></div>
+    <p class="intro" id="intro"></p>
+    <div class="hero-bottom">
+      <div class="meta-row">
+        <span class="copy" id="emailCopy" role="button" tabindex="0" title="Click to copy"></span>
+        <span id="locLine"></span>
+        <span><i class="dot"></i><span id="availText"></span></span>
+      </div>
+      <div class="hero-foot"><span>Scroll</span><span id="est"></span></div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <section id="work">
+    <div class="sec-head small"><span>Selected work</span><span id="workYears"></span></div>
+    <div id="workList"></div>
+  </section>
+
+  <section class="statement" id="about">
+    <p id="statement"></p>
+    <p class="small" id="aboutText"></p>
+  </section>
+
+  <section>
+    <div class="sec-head small"><span>Services</span></div>
+    <div class="services" id="services"></div>
+  </section>
+
+  <section>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head small"><span>Experience</span></div>
+    <div id="expList"></div>
+    <a class="btn" id="resumeBtn" href="#">Download résumé</a>
+  </section>
+
+  <section>
+    <div class="sec-head small"><span>Testimonials</span></div>
+    <div class="quote-wrap" aria-live="polite">
+      <p class="quote" id="quote"></p>
+      <p class="who small" id="who"></p>
+    </div>
+    <div class="arrows">
+      <button id="prevQ" aria-label="Previous testimonial">&larr;</button>
+      <button id="nextQ" aria-label="Next testimonial">&rarr;</button>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <h2 class="big" id="ctaTitle"></h2>
+  <div class="cta">
+    <a class="mail" id="mailLink" href="#"></a>
+    <a class="book" id="bookLink" href="#">Book a call</a>
+  </div>
+  <div class="foot-cols">
+    <div><b>Contact</b><span id="fMail" style="display:block"></span><a id="fPhone" href="#" style="display:block"></a><span id="fLoc" style="display:block"></span><span id="clock" style="display:block"></span></div>
+    <div><b>Legal</b><a href="#">Privacy policy</a><a href="#">Terms</a></div>
+    <div><b>Studio</b><span id="studio"></span></div>
+    <div><b>Elsewhere</b><span id="socials"></span></div>
+  </div>
+</footer>
+
+<div id="peek"></div>
+
+<script>
+/* ============================================================
+   EDITABLE CONFIGURATION
+   ============================================================ */
+const SITE = {
+  name: "Shahzaib Shahid",
+  phone: "+92 325 0666622",
+  logo: "SHAHZAIB.",
+  heroLines: ["Graphic", "& Brand", "Designer"],
+  intro: "Graphic and brand designer creating logos, identities and visuals that make businesses look credible.",
+  email: "createdby.shahzaib@gmail.com",
+  location: "Pakistan",
+  timezone: "Asia/Karachi",
+  available: true,
+  startYear: 2020,
+  portrait: "me.png",
+  marquee: ["Available for work", "Based in Pakistan", "Working globally", "Brand identity", "Graphic design", "Packaging", "Social media design"],
+  statement: "Good design isn't decoration. It's what makes people trust you.",
+  about: "Specialized in visual storytelling, high-converting brand identities, and digital marketing assets.",
+  resume: "#",
+  bookingLink: "#",
+  cta: "Let's build something that matters.",
+  studio: "Shazz Films",
+  socials: [
+    { label: "Fiverr", url: "https://www.fiverr.com" },
+    { label: "Upwork", url: "https://www.upwork.com" },
+    { label: "LinkedIn", url: "https://linkedin.com" }
+  ]
+};
+
+const PROJECTS = [
+  { title: "Project One",   type: "Brand identity",   tags: "Logo, Colour, Typography, Guidelines", image: "project-1.png", color: "#d8ff3e", url: "#" },
+  { title: "Project Two",   type: "Packaging",        tags: "Packaging design, Labels, Mockups",     image: "project-2.png", color: "#ff7a59", url: "#" },
+  { title: "Project Three", type: "Social media",     tags: "Post templates, Campaign visuals",      image: "project-3.png", color: "#7aa2ff", url: "#" },
+  { title: "Project Four",  type: "Logo design",      tags: "Logo mark, Logo variations, Usage",     image: "project-4.png", color: "#f2c94c", url: "#" },
+  { title: "Project Five",  type: "Print",            tags: "Brochure, Poster, Business card",       image: "project-5.png", color: "#b58cff", url: "#" }
+];
+
+const SERVICES = [
+  { title: "Brand identity", items: ["Brand strategy", "Logo design", "Colour palette", "Typography", "Visual language", "Brand guidelines", "Stationery", "Brand refresh"] },
+  { title: "Graphic design", items: ["Social media design", "Posters and flyers", "Brochures", "Banners and ads", "Presentations", "Infographics", "Menus", "Event graphics"] },
+  { title: "Packaging", items: ["Product packaging", "Labels", "Boxes and bags", "Bottle and can design", "Dielines", "3D mockups", "Print-ready files", "Unboxing details"] },
+  { title: "Digital and print", items: ["Website graphics", "Email headers", "Business cards", "Merch design", "Signage", "Print preparation", "Asset libraries", "File handoff"] }
+];
+
+const STATS = [
+  { value: "04+", label: "Years Of Design Experience" },
+  { value: "+500", label: "Digital Assets Created" },
+  { value: "+100", label: "Clients Worldwide" },
+  { value: "98%", label: "Job Success / On-Time Delivery" }
+];
+
+const EXPERIENCE = [
+  { years: "2025 – Present", role: "Brand and Graphic Designer", place: "Brainforce Digital", text: "Designing brand identities and graphics for clients at Brainforce Digital." },
+  { years: "2022 – 2025", role: "Freelance Graphic Designer", place: "Fiverr and Upwork", text: "Designed thumbnails, social media posts and banners for clients worldwide, and created digital assets." }
+];
+
+const TESTIMONIALS = [
+  { quote: "Delivered high-converting thumbnails and banners on a very tight deadline. Attention to detail and visual quality are unmatched.", name: "David Chen", role: "Content Creator & Strategist" },
+  { quote: "Outstanding work on our brand identity. Professional, fast, and highly skilled.", name: "Creative Client", role: "Marketing Lead" }
+];
+
+/* ============================================================
+   SCRIPT EXECUTION
+   ============================================================ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const letter = i => String.fromCharCode(97 + i) + '.';
+
+try {
+  document.title = `${SITE.name} | Graphic & Brand Designer`;
+  if ($('logoText'))$('logoText').textContent = SITE.logo;
+  if ($('intro'))$('intro').textContent = SITE.intro;
+  if ($('emailCopy'))$('emailCopy').textContent = SITE.email;
+  if ($('locLine'))$('locLine').textContent = `${SITE.location} · Working globally`;
+  if ($('availText'))$('availText').textContent = SITE.available ? 'Available' : 'Booked';
+  if ($('est'))$('est').textContent = `Est. ${SITE.startYear}`;
+
+  const lines = SITE.heroLines.map(l => `<span>${[...l].map(c => c === ' ' ? ' ' : `<i class="ch">${esc(c)}</i>`).join('')}</span>`).join('');
+  if ($('heroTitle'))$('heroTitle').innerHTML = lines;
+  if ($('heroTitleFront'))$('heroTitleFront').innerHTML = lines;
+
+  if ($('portrait')) {$('portrait').src = SITE.portrait;
+    $('portrait').alt = SITE.name;
+    $('portrait').onerror = () => {$('portrait').style.display = 'none';
+      if ($('photoNote')) {$('photoNote').hidden = false;
+        $('photoNote').textContent = `Photo "${SITE.portrait}" not found in root directory.`;
+      }
+    };
+  }
+
+  if ($('workYears'))$('workYears').textContent = `${SITE.startYear}–${new Date().getFullYear()}`;
+  if ($('statement'))$('statement').textContent = SITE.statement;
+  if ($('aboutText'))$('aboutText').textContent = SITE.about;
+  if ($('resumeBtn'))$('resumeBtn').href = SITE.resume;
+  if ($('ctaTitle'))$('ctaTitle').textContent = SITE.cta;
+  if ($('mailLink')) {$('mailLink').href = `mailto:${SITE.email}`; $('mailLink').textContent = SITE.email; }
+  if ($('bookLink'))$('bookLink').href = SITE.bookingLink;
+  if ($('fMail'))$('fMail').textContent = SITE.email;
+  if ($('fLoc'))$('fLoc').textContent = SITE.location;
+  if ($('fPhone')) { $('fPhone').textContent = SITE.phone; $('fPhone').href = 'tel:' + SITE.phone.replace(/\s/g,''); }
+  if ($('studio'))$('studio').textContent = SITE.studio;
+  if ($('socials'))$('socials').innerHTML = SITE.socials.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join('');
+
+  const mq = [...SITE.marquee, ...SITE.marquee].map(t => `<span>${esc(t)}</span>`).join('');
+  if ($('marquee'))$('marquee').innerHTML = mq + mq;
+
+  /* Render Projects */
+  if ($('workList')) {$('workList').innerHTML = PROJECTS.map((p, i) => `
+      <a class="work-row" href="${esc(p.url)}" data-i="${i}">
+        <h3>${esc(p.title)}</h3>
+        <span class="type">${esc(p.type)} (${letter(i)})</span>
+        <span class="tags">${esc(p.tags)}</span>
+        <div class="thumb" style="background-image:url('${esc(p.image)}');background-size:cover;background-position:center"></div>
+      </a>`).join('');
+  }
+
+  /* Render Services, Stats, Experience */
+  if ($('services'))$('services').innerHTML = SERVICES.map((s, i) => `<div class="svc"><h3>${esc(s.title)} (${letter(i)})</h3><ul>${s.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('');
+  if ($('stats'))$('stats').innerHTML = STATS.map(s => `<div class="stat"><b>${esc(s.value)}</b><span class="small">${esc(s.label)}</span></div>`).join('');
+  if ($('expList'))$('expList').innerHTML = EXPERIENCE.map(e => `<div class="exp"><span class="small">${esc(e.years)}</span><h4>${esc(e.role)}</h4><span class="small">${esc(e.place)}</span><p>${esc(e.text)}</p></div>`).join('');
+
+  /* Testimonials */
+  let q = 0;
+  function showQ() {
+    const t = TESTIMONIALS[q];
+    if ($('quote'))$('quote').textContent = `“${t.quote}”`;
+    if ($('who'))$('who').textContent = `${t.name}, ${t.role}`;
+  }
+  if ($('prevQ'))$('prevQ').onclick = () => { q = (q - 1 + TESTIMONIALS.length) % TESTIMONIALS.length; showQ(); };
+  if ($('nextQ'))$('nextQ').onclick = () => { q = (q + 1) % TESTIMONIALS.length; showQ(); };
+  showQ();
+
+  /* Menu */
+  const menu = $('menu'), openBtn =$('openMenu');
+  if (openBtn && menu) {
+    openBtn.onclick = () => { menu.classList.add('open'); openBtn.setAttribute('aria-expanded', 'true'); };
+    if ($('closeMenu'))$('closeMenu').onclick = () => { menu.classList.remove('open'); openBtn.setAttribute('aria-expanded', 'false'); };
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  /* Copy Email */
+  if ($('emailCopy')) {$('emailCopy').onclick = async () => {
+      try { await navigator.clipboard.writeText(SITE.email); $('emailCopy').textContent = 'Copied'; }
+      catch { $('emailCopy').textContent = 'Press Ctrl/Cmd+C'; }
+      setTimeout(() => $('emailCopy').textContent = SITE.email, 1500);
+    };
+  }
+
+  /* Clock */
+  function tick() {
+    let t;
+    try { t = new Date().toLocaleTimeString('en-GB', { timeZone: SITE.timezone, hour12: false }); }
+    catch { t = new Date().toLocaleTimeString('en-GB', { hour12: false }); }
+    if ($('clock'))$('clock').textContent = `Local time ${t}`;
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* Hover Peek & Mouse Effects */
+  const peek = $('peek');
+  let px = 0, py = 0, tx = 0, ty = 0;
+  document.querySelectorAll('.work-row').forEach(row => {
+    const p = PROJECTS[row.dataset.i];
+    row.addEventListener('mouseenter', () => {
+      if (peek) {
+        peek.style.backgroundImage = `url('${esc(p.image)}')`;
+        peek.classList.add('on');
+      }
+    });
+    row.addEventListener('mouseleave', () => peek && peek.classList.remove('on'));
+  });
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+  (function follow() {
+    px += (tx - px) * .15; py += (ty - py) * .15;
+    if (peek) {
+      peek.style.left = px + 'px'; peek.style.top = py + 'px';
+      peek.style.setProperty('--rot', Math.max(-12, Math.min(12, (tx - px) * 0.25)) + 'deg');
+    }
+    requestAnimationFrame(follow);
+  })();
+
+} catch (err) {
+  console.error("Initialization error:", err);
+}
+</script>
+</body>
+</html>
